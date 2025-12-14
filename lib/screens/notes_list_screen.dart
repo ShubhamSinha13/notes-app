@@ -55,8 +55,12 @@ class _NotesListScreenState extends State<NotesListScreen> {
     final notesProvider = Provider.of<NotesProvider>(context);
 
     return Scaffold(
+      backgroundColor: const Color(0xFF1a1a1a),
       appBar: AppBar(
-        title: const Text('My Notes'),
+        title: const Text(
+          'My Notes',
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
         actions: [
           // Online/Offline indicator
           Padding(
@@ -102,14 +106,23 @@ class _NotesListScreenState extends State<NotesListScreen> {
                 itemBuilder: (context, index) {
                   final note = notesProvider.notes[index];
                   return Card(
+                    color: const Color(0xFFFFF9C4),
                     margin: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
                     child: ListTile(
                       title: Text(
                         note.title.isEmpty ? 'Untitled' : note.title,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFF1a1a1a),
+                          fontSize: 16,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -120,13 +133,14 @@ class _NotesListScreenState extends State<NotesListScreen> {
                             note.content,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(color: Color(0xFF424242)),
                           ),
                           const SizedBox(height: 4),
                           Text(
                             _formatDate(note.updatedAt),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 12,
-                              color: Colors.grey[600],
+                              color: Color(0xFF757575),
                             ),
                           ),
                         ],

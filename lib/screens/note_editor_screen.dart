@@ -100,10 +100,23 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFFFF9C4),
       appBar: AppBar(
-        title: Text(_isNewNote ? 'New Note' : 'Edit Note'),
+        backgroundColor: const Color(0xFFFFF59D),
+        title: Text(
+          _isNewNote ? 'New Note' : 'Edit Note',
+          style: const TextStyle(
+            color: Color(0xFF1a1a1a),
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        iconTheme: const IconThemeData(color: Color(0xFF1a1a1a)),
         actions: [
-          IconButton(icon: const Icon(Icons.save), onPressed: _saveNote),
+          IconButton(
+            icon: const Icon(Icons.save),
+            onPressed: _saveNote,
+            color: const Color(0xFF1a1a1a),
+          ),
         ],
       ),
       body: Padding(
@@ -114,19 +127,25 @@ class _NoteEditorScreenState extends State<NoteEditorScreen> {
               controller: _titleController,
               decoration: const InputDecoration(
                 hintText: 'Title',
+                hintStyle: TextStyle(color: Color(0xFF9E9E9E)),
                 border: InputBorder.none,
               ),
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF1a1a1a),
+              ),
             ),
-            const Divider(),
+            const Divider(color: Color(0xFFE0E0E0)),
             Expanded(
               child: TextField(
                 controller: _contentController,
                 decoration: const InputDecoration(
                   hintText: 'Start typing...',
+                  hintStyle: TextStyle(color: Color(0xFF9E9E9E)),
                   border: InputBorder.none,
                 ),
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16, color: Color(0xFF424242)),
                 maxLines: null,
                 expands: true,
                 textAlignVertical: TextAlignVertical.top,

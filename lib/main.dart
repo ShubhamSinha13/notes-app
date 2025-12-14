@@ -62,7 +62,17 @@ class MyApp extends StatelessWidget {
             title: 'Offline Notes',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              brightness: Brightness.dark,
+              scaffoldBackgroundColor: const Color(0xFF1a1a1a),
+              primaryColor: const Color(0xFF2c2c2c),
+              cardColor: const Color(0xFF2c2c2c),
+              appBarTheme: const AppBarTheme(
+                backgroundColor: Color(0xFF0d0d0d),
+                elevation: 0,
+              ),
+              floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                backgroundColor: Color(0xFF404040),
+              ),
               useMaterial3: true,
             ),
             home: snapshot.connectionState == ConnectionState.waiting
